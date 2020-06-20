@@ -13,6 +13,7 @@ export default class EditIssue extends Component {
       date: new Date(),
       deadline: new Date(),
       completed: false,
+      completionDate: new Date(),
       users: [],
     };
   }
@@ -27,6 +28,7 @@ export default class EditIssue extends Component {
           date: new Date(res.data.date),
           deadline: new Date(res.data.deadline),
           completed: res.data.completed,
+          completionDate: new Date(res.data.completionDate),
         });
       })
       .catch(function (err) {
@@ -71,10 +73,10 @@ export default class EditIssue extends Component {
     const issue = {
       username: this.state.username,
       description: this.state.description,
-      duration: this.state.duration,
       date: this.state.date,
       deadline: this.state.deadline,
       completed: this.state.completed,
+      completionDate: this.state.completionDate,
     };
 
     console.log(issue);
@@ -85,10 +87,12 @@ export default class EditIssue extends Component {
         issue
       )
       .then((res) => console.log(res.data));
-
-    window.location = "/";
+    setTimeout(() => (window.location = "/"), 100);
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    console.log("Component did update");
+  }
   render() {
     return (
       <div>

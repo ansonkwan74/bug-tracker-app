@@ -36,7 +36,7 @@ const Completed = (props) => (
     <td>{props.issue.username}</td>
     <td>{props.issue.description}</td>
     <td>{props.issue.date.substring(0, 10)}</td>
-    <td>{props.issue.deadline.substring(0, 10)}</td>
+    <td>{props.issue.completionDate.substring(0, 10)}</td>
     <td>
       <a
         href="#"
@@ -74,11 +74,13 @@ export default class IssuesLog extends Component {
     this.state.issues.map((issue) => {
       if (issue._id === id) {
         const currentIssue = {
+          _id: issue._id,
           username: issue.username,
           description: issue.description,
           date: issue.date,
           deadline: issue.deadline,
           completed: true,
+          completionDate: issue.completionDate,
         };
         axios
           .post("http://localhost:5000/issues/update/" + id, currentIssue)
@@ -89,6 +91,7 @@ export default class IssuesLog extends Component {
           issues: this.state.issues.filter((el) => el._id !== id),
           completed: [...this.state.completed, currentIssue],
         });
+        return;
       }
     });
   };
@@ -130,6 +133,10 @@ export default class IssuesLog extends Component {
     });
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    console.log("Component did update");
+  }
+
   render() {
     return (
       <div>
@@ -150,14 +157,14 @@ export default class IssuesLog extends Component {
         </div>
 
         <div>
-          <h3>Completed</h3>
+          <h3>Resolved</h3>
           <table className="table">
             <thead className="thead-light">
               <tr>
-                <th>Username</th>
+                <th>Dev</th>
                 <th>Description</th>
                 <th>Date</th>
-                <th>Deadline</th>
+                <th>Completed</th>
                 <th>Actions</th>
               </tr>
             </thead>

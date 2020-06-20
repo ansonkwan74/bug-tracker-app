@@ -11,9 +11,10 @@ router.route("/").get((req, res) => {
 router.route("/add").post((req, res) => {
   const username = req.body.username;
   const description = req.body.description;
-  const date = Date.now();
+  const date = new Date();
   const deadline = Date.parse(req.body.deadline);
   const completed = req.body.completed;
+  const completionDate = new Date();
 
   const newIssue = new Issue({
     username,
@@ -21,6 +22,7 @@ router.route("/add").post((req, res) => {
     date,
     deadline,
     completed,
+    completionDate,
   });
 
   newIssue
@@ -49,6 +51,7 @@ router.route("/update/:id").post((req, res) => {
       issue.date = Date.parse(req.body.date);
       issue.deadline = Date.parse(req.body.deadline);
       issue.completed = req.body.completed;
+      issue.completionDate = Date.parse(req.body.completionDate);
 
       issue
         .save()
