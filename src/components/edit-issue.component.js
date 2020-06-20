@@ -10,7 +10,7 @@ export default class EditIssue extends Component {
     this.state = {
       username: "",
       description: "",
-      date: null,
+      date: new Date(),
       deadline: new Date(),
       completed: false,
       users: [],

@@ -20,7 +20,6 @@ router.route("/add").post((req, res) => {
     description,
     date,
     deadline,
-    completionDate,
     completed,
   });
 

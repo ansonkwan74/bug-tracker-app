@@ -45,9 +45,9 @@ export default class CreateIssue extends Component {
     });
   };
 
-  onChangeDate = (date) => {
+  onChangeDeadline = (deadline) => {
     this.setState({
-      date: date,
+      deadline: deadline,
     });
   };
 
@@ -107,8 +107,8 @@ export default class CreateIssue extends Component {
             <label>Deadline: </label>
             <div>
               <DatePicker
-                selected={this.state.date}
-                onChange={this.onChangeDate}
+                selected={this.state.deadline}
+                onChange={this.onChangeDeadline}
               />
             </div>
           </div>
