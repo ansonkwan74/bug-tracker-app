@@ -9,6 +9,16 @@ export default class UnresolvedIssue extends Component {
 		};
 	}
 
+	triggerCompletion = () => {
+		this.setState((prevState) => ({
+			isCompletionTriggered: !prevState.isCompletionTriggered,
+		}));
+
+		console.log(this.state);
+	};
+
+	displayResolutionForm = () => {};
+
 	render() {
 		return (
 			<tr>
@@ -32,6 +42,14 @@ export default class UnresolvedIssue extends Component {
 							this.props.markAsComplete(this.props.issue._id);
 						}}>
 						complete
+					</a>{" "}
+					|{" "}
+					<a
+						href="#"
+						onClick={() => {
+							this.triggerCompletion();
+						}}>
+						trigger
 					</a>
 				</td>
 			</tr>
