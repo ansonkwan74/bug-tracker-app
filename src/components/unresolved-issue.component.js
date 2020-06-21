@@ -40,7 +40,6 @@ export default class UnresolvedIssue extends Component {
                 <label>Resolution: </label>
                 <input
                   type="text"
-                  required
                   className="form-control"
                   value={this.state.resolution}
                   onChange={this.onChangeResolution}
@@ -63,6 +62,7 @@ export default class UnresolvedIssue extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     const issue = {
+      _id: this.props.issue._id,
       username: this.props.issue.username,
       description: this.props.issue.description,
       date: this.props.issue.date,
@@ -106,19 +106,10 @@ export default class UnresolvedIssue extends Component {
             <a
               href="#"
               onClick={() => {
-                this.props.markAsComplete(this.props.issue._id);
-              }}
-            >
-              complete
-            </a>{" "}
-            |{" "}
-            <a
-              href="#"
-              onClick={() => {
                 this.triggerCompletion();
               }}
             >
-              trigger
+              resolve
             </a>
           </td>
         </tr>

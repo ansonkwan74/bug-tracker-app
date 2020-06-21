@@ -23,33 +23,6 @@ export default class IssuesLog extends Component {
       });
   }
 
-  markAsComplete = (id) => {
-    this.state.issues.map((issue) => {
-      if (issue._id === id) {
-        const currentIssue = {
-          _id: issue._id,
-          username: issue.username,
-          description: issue.description,
-          date: issue.date,
-          deadline: issue.deadline,
-          completed: true,
-          completionDate: issue.completionDate,
-          resolution: issue.resolution,
-        };
-        axios
-          .post("http://localhost:5000/issues/update/" + id, currentIssue)
-          .then((res) => console.log(res.data));
-
-        this.setState({
-          //Only returns elements that do not have the 'id' from the parameter
-          issues: this.state.issues.filter((el) => el._id !== id),
-          completed: [...this.state.completed, currentIssue],
-        });
-        return;
-      }
-    });
-  };
-
   issueResolvedStateUpdate = (id, issue) => {
     this.setState({
       //Only returns elements that do not have the 'id' from the parameter
