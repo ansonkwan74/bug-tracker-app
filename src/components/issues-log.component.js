@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import CompletedIssue from "./completed-issue.component";
 
 const Issue = (props) => (
   <tr>
@@ -26,25 +27,6 @@ const Issue = (props) => (
         }}
       >
         complete
-      </a>
-    </td>
-  </tr>
-);
-
-const Completed = (props) => (
-  <tr>
-    <td>{props.issue.username}</td>
-    <td>{props.issue.description}</td>
-    <td>{props.issue.date.substring(0, 10)}</td>
-    <td>{props.issue.completionDate.substring(0, 10)}</td>
-    <td>
-      <a
-        href="#"
-        onClick={() => {
-          props.deleteIssue(props.issue._id);
-        }}
-      >
-        delete
       </a>
     </td>
   </tr>
@@ -81,6 +63,7 @@ export default class IssuesLog extends Component {
           deadline: issue.deadline,
           completed: true,
           completionDate: issue.completionDate,
+          resolution: issue.resolution
         };
         axios
           .post("http://localhost:5000/issues/update/" + id, currentIssue)
@@ -124,7 +107,7 @@ export default class IssuesLog extends Component {
   completedLog() {
     return this.state.completed.map((currentissue) => {
       return (
-        <Completed
+        <CompletedIssue
           issue={currentissue}
           deleteIssue={this.deleteIssue}
           key={currentissue._id}

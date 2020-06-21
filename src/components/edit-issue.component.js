@@ -15,6 +15,7 @@ export default class EditIssue extends Component {
       completed: false,
       completionDate: new Date(),
       users: [],
+      resolution: ""
     };
   }
 
@@ -29,6 +30,7 @@ export default class EditIssue extends Component {
           deadline: new Date(res.data.deadline),
           completed: res.data.completed,
           completionDate: new Date(res.data.completionDate),
+          resolution: res.data.resolution
         });
       })
       .catch(function (err) {
@@ -77,6 +79,7 @@ export default class EditIssue extends Component {
       deadline: this.state.deadline,
       completed: this.state.completed,
       completionDate: this.state.completionDate,
+      resolution: this.state.resolution
     };
 
     console.log(issue);

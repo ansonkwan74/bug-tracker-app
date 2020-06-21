@@ -10,6 +10,7 @@ const issueSchema = new Schema(
     deadline: { type: Date, required: true },
     completed: { type: Boolean, required: true, default: false },
     completionDate: { type: Date, required: false },
+    resolution: {type: String, required: false, default: ''}
   },
   {
     timestamps: true,

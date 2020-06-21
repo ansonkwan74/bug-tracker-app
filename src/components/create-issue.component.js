@@ -13,6 +13,7 @@ export default class CreateIssue extends Component {
       date: new Date(),
       deadline: new Date(),
       completionDate: new Date(),
+      resolution: "",
       users: [],
     };
   }
@@ -61,6 +62,7 @@ export default class CreateIssue extends Component {
       date: this.state.date,
       deadline: this.state.deadline,
       completionDate: this.state.completionDate,
+      resolution: this.state.resolution
     };
 
     console.log(issue);
