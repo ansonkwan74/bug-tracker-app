@@ -33,28 +33,26 @@ export default class UnresolvedIssue extends Component {
   displayResolutionForm = () => {
     if (this.state.isCompletionTriggered) {
       return (
-        <td>
-          <div>
-            <form onSubmit={this.onSubmit}>
-              <div className="form-group">
-                <label>Resolution: </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  value={this.state.resolution}
-                  onChange={this.onChangeResolution}
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  type="submit"
-                  value="Complete"
-                  className="btn btn-primary"
-                />
-              </div>
-            </form>
-          </div>
-        </td>
+        <div>
+          <form onSubmit={this.onSubmit}>
+            <div className="form-group">
+              <label>Resolution: </label>
+              <input
+                type="text"
+                className="form-control"
+                value={this.state.resolution}
+                onChange={this.onChangeResolution}
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="submit"
+                value="Complete"
+                className="btn btn-primary"
+              />
+            </div>
+          </form>
+        </div>
       );
     }
   };

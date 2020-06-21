@@ -5,22 +5,18 @@ export default class CreateUser extends Component {
   constructor(props) {
     super(props);
 
-    //Binds 'this' to all methods
-    this.onChangeUsername = this.onChangeUsername.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-
     this.state = {
       username: "",
     };
   }
 
-  onChangeUsername(e) {
+  onChangeUsername = (e) => {
     this.setState({
       username: e.target.value,
     });
-  }
+  };
 
-  onSubmit(e) {
+  onSubmit = (e) => {
     e.preventDefault();
     e.stopPropagation();
     const user = {
@@ -36,7 +32,7 @@ export default class CreateUser extends Component {
     this.setState({
       username: "",
     });
-  }
+  };
 
   render() {
     return (

@@ -8,12 +8,6 @@ export default class Completed extends Component {
     };
   }
 
-  componentDidMount() {
-    if (this.state.isViewTriggered) {
-      return <div>yeet</div>;
-    }
-  }
-
   triggerView = () => {
     this.setState((prevState) => ({
       isViewTriggered: !prevState.isViewTriggered,
