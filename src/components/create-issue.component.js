@@ -62,7 +62,7 @@ export default class CreateIssue extends Component {
       date: this.state.date,
       deadline: this.state.deadline,
       completionDate: this.state.completionDate,
-      resolution: this.state.resolution
+      resolution: this.state.resolution,
     };
 
     console.log(issue);
@@ -80,7 +80,7 @@ export default class CreateIssue extends Component {
         <h3>Log Issue</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
-            <label>Username: </label>
+            <label>Assign To: </label>
             <select
               ref="userInput"
               required

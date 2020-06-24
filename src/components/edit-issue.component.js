@@ -15,7 +15,7 @@ export default class EditIssue extends Component {
       completed: false,
       completionDate: new Date(),
       users: [],
-      resolution: ""
+      resolution: "",
     };
   }
 
@@ -30,7 +30,7 @@ export default class EditIssue extends Component {
           deadline: new Date(res.data.deadline),
           completed: res.data.completed,
           completionDate: new Date(res.data.completionDate),
-          resolution: res.data.resolution
+          resolution: res.data.resolution,
         });
       })
       .catch(function (err) {
@@ -79,7 +79,7 @@ export default class EditIssue extends Component {
       deadline: this.state.deadline,
       completed: this.state.completed,
       completionDate: this.state.completionDate,
-      resolution: this.state.resolution
+      resolution: this.state.resolution,
     };
 
     console.log(issue);
@@ -102,7 +102,7 @@ export default class EditIssue extends Component {
         <h3>Edit Issue</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
-            <label>Username: </label>
+            <label>Reassign To: </label>
             <select
               ref="userInput"
               required

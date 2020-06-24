@@ -18,7 +18,12 @@ export default class Completed extends Component {
 
   displayResolution = () => {
     if (this.state.isViewTriggered) {
-      return <td>{this.props.issue.resolution}</td>;
+      return (
+        <Fragment>
+          <td></td>
+          <td colspan="1">{this.props.issue.resolution}</td>
+        </Fragment>
+      );
     }
   };
 
